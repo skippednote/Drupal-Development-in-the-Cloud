@@ -1,0 +1,8 @@
+---
+roles:
+  - geerlingguy.swap
+  - geerlingguy.docker
+  - geerlingguy.nodejs
+  - geerlingguy.php
+  - geerlingguy.composer
+  - pallxk.code_server

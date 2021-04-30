@@ -1,0 +1,32 @@
+---
+swap_file_size_mb: "4096"
+
+nodejs_version: "14.x"
+npm_config_prefix: "/home/{{ ansible_user }}/.npm-global"
+
+docker_users:
+  - "vagrant"
+
+code_server_password: "BassamIsmail"
+code_server_user: "{{ ansible_user }}"
+
+php_default_version_debian: "7.4"
+php_enable_webserver: false
+php_packages:
+  - php{{php_default_version_debian}}-common
+  - php{{ php_default_version_debian }}-cli
+  - php{{ php_default_version_debian }}-dev
+  - libpcre3-dev
+  - php{{ php_default_version_debian }}-curl
+  - php{{ php_default_version_debian }}-gd
+  - php{{ php_default_version_debian }}-imap
+  - php{{ php_default_version_debian }}-json
+  - php{{ php_default_version_debian }}-opcache
+  - php{{ php_default_version_debian }}-xml
+  - php{{ php_default_version_debian }}-mbstring
+  - php-apcu
+  - php{{ php_default_version_debian }}-bcmath
+  - php{{ php_default_version_debian }}-bz2
+  - php{{ php_default_version_debian }}-readline
+  - php{{ php_default_version_debian }}-xsl
+  - php{{ php_default_version_debian }}-zip

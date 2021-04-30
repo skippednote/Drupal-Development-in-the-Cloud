@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: true
+  gather_facts: true
+  vars_files:
+    - variables.yml
+  roles:
+    - geerlingguy.docker
+    - geerlingguy.swap
+    - geerlingguy.php
+    - geerlingguy.composer
+    - geerlingguy.nodejs
+    - pallxk.code_server
+  tasks:
+    - import_tasks: tasks.yml

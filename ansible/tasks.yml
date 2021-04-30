@@ -1,0 +1,39 @@
+---
+- name: Install Lando
+  ansible.builtin.apt:
+    deb: "https://files.devwithlando.io/lando-stable.deb"
+
+- name: Install zsh
+  package:
+    name:
+      - zsh
+    state: present
+
+- name: Change default shell
+  user:
+    name: "{{ ansible_user }}"
+    shell: "/usr/bin/zsh"
+
+- name: Get starship installer
+  get_url:
+    url: https://starship.rs/install.sh
+    dest: /tmp/starship-installer.sh
+    mode: 0777
+
+- name: Install starship
+  become: true
+  command: /tmp/starship-installer.sh --yes
+
+- name: Add starship to zsh shell
+  become: false
+  ansible.builtin.lineinfile:
+    dest: ~/.zshrc
+    state: present
+    create: true
+    regexp: "^starship"
+    line: "eval $(starship init zsh)"
+
+- name: Remove Starship installer file
+  ansible.builtin.file:
+    path: "/tmp/starship-installer.sh"
+    state: absent

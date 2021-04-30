@@ -1,0 +1,8 @@
+env
+.DS_Store
+inventories
+.terraform*
+*.tfstate*
+*.pem
+keys
+.vagrant
