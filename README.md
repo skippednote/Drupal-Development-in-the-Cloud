@@ -10,8 +10,8 @@ ssh-keygen -t rsa -b 4096 -C "key" -f keys/key
 #### Create Infrastructure
 
 ```
-terraform init
 cd terraform/instance
+terraform init
 terraform apply
 ```
 
