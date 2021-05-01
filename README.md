@@ -10,6 +10,7 @@ ssh-keygen -t rsa -b 4096 -C "key" -f keys/key
 #### Create Infrastructure
 
 ```
+terraform init
 cd terraform/instance
 terraform apply
 ```
@@ -41,6 +42,7 @@ ssh -i keys/key ubuntu@$VM_IP
 
 ```
 cd terraform/ami
+terraform init
 terraform apply
 VM_AMI=$(terraform output -raw ami)
 cd ../..
