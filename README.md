@@ -27,6 +27,7 @@ sed -i -e "s/SOURCE_INSTANCE_ID/$VM_ID/" terraform/ami/ami.tf
 #### Install relevant packages
 
 ```
+ansible-galaxy install -r ansible/requirements.yml
 ansible-playbook -i ansible/inventory/hosts.ini ansible/playbook.yml
 ```
 
