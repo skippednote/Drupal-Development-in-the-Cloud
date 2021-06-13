@@ -7,9 +7,12 @@
   roles:
     - geerlingguy.docker
     - geerlingguy.swap
-    # - geerlingguy.php
-    # - geerlingguy.composer
-    # - geerlingguy.nodejs
+    - geerlingguy.php
+    - geerlingguy.composer
+    - name: stephdewit.nvm
+      become_user: "{{ ansible_user }}"
+      environment:
+        NVM_DIR: "/home/{{ ansible_user }}/.nvm"
     - pallxk.code_server
   tasks:
     - import_tasks: tasks.yml

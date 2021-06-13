@@ -1,8 +1,9 @@
 ---
 swap_file_size_mb: "4096"
 
-nodejs_version: "14.x"
-npm_config_prefix: "/home/{{ ansible_user }}/.npm-global"
+nvm_version: master
+nvm_node_version: lts
+nvm_shell_init_file: "~/.zshrc"
 
 docker_users:
   - "vagrant"
