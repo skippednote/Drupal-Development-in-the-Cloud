@@ -7,12 +7,12 @@
   tasks:
     - name: Create the primary group for the user
       group:
-        name: "training"
+        name: "skippednote"
 
     - name: Create user for later runs
       user:
-        name: "training"
-        group: "training"
+        name: "skippednote"
+        group: "skippednote"
         state: present
         groups: "admin,sudo"
         shell: "/bin/bash"
@@ -22,13 +22,13 @@
       lineinfile:
         dest: /etc/sudoers
         state: present
-        regexp: "^training"
+        regexp: "^skippednote"
         line: "training ALL=(ALL) NOPASSWD: ALL"
         validate: "visudo -cf %s"
 
     - name: Add public key to authorized keys
       ansible.posix.authorized_key:
-        user: "training"
+        user: "skippednote"
         state: present
         key: "{{ item }}"
       with_file: "~/.ssh/id_ed25519.pub"

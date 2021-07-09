@@ -9,10 +9,17 @@
     - geerlingguy.swap
     - geerlingguy.php
     - geerlingguy.composer
-    - name: stephdewit.nvm
-      become_user: "{{ ansible_user }}"
-      environment:
-        NVM_DIR: "/home/{{ ansible_user }}/.nvm"
+    - geerlingguy.nodejs
     - pallxk.code_server
+
+- hosts: all
+  name: Development Environment
+  gather_facts: true
   tasks:
-    - import_tasks: tasks.yml
+    - import_tasks: lando.yml
+    # - import_tasks: ddev.yml
+
+- hosts: all
+  name: ZSH
+  tasks:
+    - import_tasks: zsh.yml

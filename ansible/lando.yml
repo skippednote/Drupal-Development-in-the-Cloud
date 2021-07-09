@@ -1,0 +1,20 @@
+---
+- name: Git checkout Lando
+  ansible.builtin.git:
+    repo: "https://github.com/lando/cli.git"
+    dest: ~/.lando
+    force: yes
+
+- name: Install Lando dependencies
+  ansible.builtin.command: /usr/local/lib/npm/bin/yarn
+  args:
+    chdir: "~/.lando"
+
+- name: Create a symbolic link
+  become: true
+  ansible.builtin.file:
+    src: "/home/{{ ansible_ssh_user }}/.lando/bin/lando.js"
+    dest: /usr/local/bin/lando
+    state: link
+    owner: "{{ ansible_ssh_user }}"
+    group: "{{ ansible_ssh_user }}"

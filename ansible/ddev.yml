@@ -1,0 +1,11 @@
+---
+- name: Download ddev installation script
+  become: true
+  ansible.builtin.command: "curl -LO https://raw.githubusercontent.com/drud/ddev/master/scripts/install_ddev.sh"
+
+- name: Install ddev
+  ansible.builtin.command: "bash install_ddev.sh"
+
+- name: Cleanup ddev installation script
+  become: true
+  ansible.builtin.command: "rm install_ddev.sh"

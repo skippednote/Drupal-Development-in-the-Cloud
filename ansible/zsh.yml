@@ -1,15 +1,13 @@
 ---
-- name: Install Lando
-  ansible.builtin.apt:
-    deb: "https://files.devwithlando.io/lando-stable.deb"
-
 - name: Install zsh
+  become: true
   package:
     name:
       - zsh
     state: present
 
 - name: Change default shell
+  become: true
   user:
     name: "{{ ansible_user }}"
     shell: "/usr/bin/zsh"

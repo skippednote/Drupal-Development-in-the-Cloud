@@ -1,15 +1,15 @@
 ---
 swap_file_size_mb: "4096"
 
-nvm_version: master
-nvm_node_version: lts
-nvm_shell_init_file: "~/.zshrc"
+nodejs_version: "14.x"
+nodejs_install_npm_user: "{{ ansible_ssh_user }}"
+nodejs_npm_global_packages:
+  - yarn
+  - gulp-cli
 
-docker_users:
-  - "vagrant"
-
-code_server_password: "BassamIsmail"
+code_server_password: "skippednote"
 code_server_user: "{{ ansible_user }}"
+code_server_port: "8080"
 
 php_default_version_debian: "7.4"
 php_enable_webserver: false
