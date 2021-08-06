@@ -56,6 +56,8 @@ terraform apply
 
 #### Docker permissions
 
+```
 sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
+```

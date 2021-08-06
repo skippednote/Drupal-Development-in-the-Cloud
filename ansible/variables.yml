@@ -2,10 +2,10 @@
 swap_file_size_mb: "4096"
 
 nodejs_version: "14.x"
-nodejs_install_npm_user: "{{ ansible_ssh_user }}"
-nodejs_npm_global_packages:
-  - yarn
-  - gulp-cli
+# nodejs_install_npm_user: "ubuntu"
+# nodejs_npm_global_packages:
+#   - yarn
+#   - gulp-cli
 
 code_server_password: "skippednote"
 code_server_user: "{{ ansible_user }}"

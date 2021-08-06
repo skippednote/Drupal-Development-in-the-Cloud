@@ -16,8 +16,8 @@
   name: Development Environment
   gather_facts: true
   tasks:
-    - import_tasks: lando.yml
-    # - import_tasks: ddev.yml
+    # - import_tasks: lando.yml
+    - import_tasks: ddev.yml
 
 - hosts: all
   name: ZSH
